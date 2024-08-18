@@ -10,7 +10,6 @@ export async function makeClient() {
   await fastify.ready();
 
   return {
-    client: supertest(fastify.server),
-    seed,
+    client: supertest(fastify.server)
   };
 }
