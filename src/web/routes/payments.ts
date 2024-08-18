@@ -5,7 +5,7 @@ export default async function postRoutes(fastify: FastifyRouteInstance) {
 
   fastify.route({
     method: 'POST',
-    url: '/api/v1/payment/card/validate',
+    url: '/api/check-card',
     schema: {
       body: {
         type: 'object',
