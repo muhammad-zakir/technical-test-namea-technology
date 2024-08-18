@@ -5,6 +5,7 @@ export function makeConfig(): ApplicationConfig {
   const schema = z.object({
     NODE_ENV: z.union([z.literal('development'), z.literal('production'), z.literal('test')]),
     LOG_LEVEL: z.union([z.literal('debug'), z.literal('info'), z.literal('warn'), z.literal('error')]),
+    HOST: z.string(),
     PORT: z
       .string()
       .transform((val) => parseInt(val, 10))
@@ -17,6 +18,7 @@ export function makeConfig(): ApplicationConfig {
 
   return {
     env: parsedEnv.NODE_ENV,
+    host: parsedEnv.HOST,
     logLevel: parsedEnv.LOG_LEVEL,
     port: parsedEnv.PORT,
   };

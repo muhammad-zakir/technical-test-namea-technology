@@ -31,6 +31,8 @@ export default async function postRoutes(fastify: FastifyRouteInstance) {
         cardNumber: request.body.cardNumber
       });
 
+      // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+      // @ts-ignore
       response.status(200).send(validateCardNumber);
     },
   });

@@ -4,12 +4,9 @@ import { Resolver, asValue } from 'awilix';
 
 import { makeLogger } from './logger';
 
-// import * as repositories from './repositories';
-
 export type Dependencies = {
   config: Interfaces.ApplicationConfig;
   logger: Interfaces.Logger;
-  //  postsRepository: Interfaces.PostsRepository;
 };
 
 export function makeInfrastructureDependencies(): {
@@ -21,6 +18,5 @@ export function makeInfrastructureDependencies(): {
   return {
     config: asValue(config),
     logger: asValue(logger),
-    //    postsRepository: asFunction(repositories.makePostsRepository).singleton(),
   };
 }
