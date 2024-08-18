@@ -21,7 +21,7 @@ export const cardNetworks: Array<cardNetwork> = [
       maximum: 22,
     },
     name: 'Diners Club',
-    prefixes: [35],
+    prefixes: [36, 38],
     rangedPrefixes: [
       {
         minimum: 300,
@@ -52,7 +52,7 @@ export const cardNetworks: Array<cardNetwork> = [
       minimum: 16,
       maximum: 20,
     },
-    name: 'Master Card',
+    name: 'MasterCard',
     prefixes: [5],
     rangedPrefixes: [
       {
