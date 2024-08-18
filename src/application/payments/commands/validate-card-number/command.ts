@@ -10,7 +10,14 @@ export type validateCardNumberCommand = Readonly<{
 
 export function makeValidateCardNumberCommand() {
   return async function validateCardNumberCommand(command: validateCardNumberCommand) {
-    await validate(command);
+    try {
+      await validate(command);
+    } catch (error) {
+      return {
+        cardNetwork: 'Unknown',
+        isValid: false,
+      }
+    }
 
     return cardNetworks.reduce(
       (accumulator: cardNetworkAccumulator, cardNetwork: cardNetwork) => {
