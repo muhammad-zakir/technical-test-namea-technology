@@ -1,9 +1,9 @@
 import { makeValidateCardNumberCommand } from './commands/validate-card-number';
 
-export function makePaymentsUseCases(dependencies: Dependencies) {
+export function makePaymentsUseCases() {
   return {
     commands: {
-      validateCardNumber: makeValidateCardNumberCommand(dependencies),
+      validateCardNumber: makeValidateCardNumberCommand(),
     }
   };
 }
