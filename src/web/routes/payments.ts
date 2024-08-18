@@ -1,7 +1,7 @@
 import { makePaymentsUseCases } from '@application/payments';
 
 export default async function postRoutes(fastify: FastifyRouteInstance) {
-  const payments = makePaymentsUseCases(fastify.diContainer.cradle);
+  const payments = makePaymentsUseCases();
 
   fastify.route({
     method: 'POST',
