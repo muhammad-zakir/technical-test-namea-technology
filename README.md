@@ -1,5 +1,10 @@
 ## Getting Started
 
+## Continuous Integration
+
+- CI for Jest:
+![CI for Jest](https://github.com/muhammad-zakir/technical-test-namea-technology/actions/workflows/test.yml/badge.svg)
+
 **Running with docker**
 1. Make sure you're on the application's directory
 2. Install Docker and ensure that it is running
