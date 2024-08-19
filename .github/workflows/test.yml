@@ -5,6 +5,12 @@ on:
     branches:
       - master
 
+env:
+  LOG_LEVEL: info
+  NODE_ENV: development
+  HOST: localhost
+  PORT: 3000
+
 jobs:
   test:
     runs-on: ubuntu-latest
