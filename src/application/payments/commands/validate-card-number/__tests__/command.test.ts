@@ -34,6 +34,24 @@ describe('validateCardNumberCommand', () => {
 
       // Act
       const result = await validateCardNumberCommand({
+        cardNumber: "999999999",
+      });
+
+      // Assert
+      expect(result).toEqual({
+        cardNetwork: 'Unknown',
+        isValid: false
+      });
+    });
+  });
+
+  describe('invalid input', () => {
+    it('should throw error response', async () => {
+      // Arrange
+      const { validateCardNumberCommand } = setup();
+
+      // Act
+      const result = await validateCardNumberCommand({
         cardNumber: '123456789',
       });
 
