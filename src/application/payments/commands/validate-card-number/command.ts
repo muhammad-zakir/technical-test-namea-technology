@@ -10,13 +10,15 @@ export type validateCardNumberCommand = Readonly<{
 
 export function makeValidateCardNumberCommand() {
   return async function validateCardNumberCommand(command: validateCardNumberCommand) {
+    const defaultResponse = {
+      cardNetwork: 'Unknown',
+      isValid: false,
+    };
+
     try {
       await validate(command);
     } catch (error) {
-      return {
-        cardNetwork: 'Unknown',
-        isValid: false,
-      }
+      return defaultResponse;
     }
 
     return cardNetworks.reduce(
@@ -34,10 +36,7 @@ export function makeValidateCardNumberCommand() {
           isValid: accumulator.isValid,
         };
       },
-      {
-        cardNetwork: 'Unknown',
-        isValid: false,
-      } as cardNetworkAccumulator,
+      defaultResponse as cardNetworkAccumulator,
     );
   };
 }

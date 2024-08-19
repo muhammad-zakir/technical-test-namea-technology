@@ -6,7 +6,7 @@ import { validateCardNumberCommand } from './command';
 export async function validate(command: validateCardNumberCommand) {
   try {
     const schema: z.ZodType<validateCardNumberCommand> = z.object({
-      cardNumber: z.string().min(13).max(23),
+      cardNumber: z.string()
     });
 
     await schema.parseAsync(command);
