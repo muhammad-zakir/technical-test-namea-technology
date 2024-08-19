@@ -43,8 +43,8 @@ npm run lint
 npm run dev
 ```
 
-**Run unit tests**
+**Run unit tests with coverage report**
 
 ```
-npm run test:unit
+npm run test:coverage
 ```
