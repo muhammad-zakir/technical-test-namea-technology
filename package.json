@@ -8,6 +8,7 @@
     "dev": "tsx watch src/web/server | pino-pretty",
     "lint": "tsc --noEmit && eslint .",
     "test": "jest",
+    "test:coverage": "jest --coverage",
     "test:unit": "jest --selectProjects unit-tests",
     "test:functional": "jest --selectProjects functional-tests",
     "prepare": "husky install"
