@@ -8,7 +8,7 @@ dotenv.config();
 
 const config: Config.InitialOptions = {
   testEnvironment: 'node',
-  collectCoverageFrom: ['src/**/*.ts', '!src/**/__tests__/*.ts'],
+  collectCoverageFrom: ['src/application/payments/**/*.ts', '!src/**/__tests__/*.ts'],
   projects: [
     {
       displayName: 'unit-tests',
