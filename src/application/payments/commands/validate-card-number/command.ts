@@ -1,7 +1,7 @@
 import { cardNetworks } from './constants/cardNetworks'
 import { validateCardNetwork } from './helpers/validateCardNetwork';
 import { cardNetwork } from './interfaces/cardNetwork';
-import { cardNetworkAccumulator } from './interfaces/cardNetworkAccumulator';
+import { cardNetworkValidationResponse } from './interfaces/cardNetworkValidationResponse';
 import { validate } from './validator';
 
 export type validateCardNumberCommand = Readonly<{
@@ -10,7 +10,7 @@ export type validateCardNumberCommand = Readonly<{
 
 export function makeValidateCardNumberCommand() {
   return async function validateCardNumberCommand(command: validateCardNumberCommand) {
-    const defaultResponse = {
+    const defaultResponse: cardNetworkValidationResponse = {
       cardNetwork: 'Unknown',
       isValid: false,
     };
@@ -22,7 +22,7 @@ export function makeValidateCardNumberCommand() {
     }
 
     return cardNetworks.reduce(
-      (accumulator: cardNetworkAccumulator, cardNetwork: cardNetwork) => {
+      (accumulator: cardNetworkValidationResponse, cardNetwork: cardNetwork) => {
         const isValidated = validateCardNetwork(cardNetwork, command.cardNumber);
         if (isValidated) {
           return {
@@ -36,7 +36,7 @@ export function makeValidateCardNumberCommand() {
           isValid: accumulator.isValid,
         };
       },
-      defaultResponse as cardNetworkAccumulator,
+      defaultResponse as cardNetworkValidationResponse,
     );
   };
 }
